@@ -45,6 +45,9 @@ def parse_args():
     parser.add_argument('--mixup_alpha', type=float, default=1.0,
                         help='Mixup alpha.')
 
+    parser.add_argument('--alpha', type=float, default=0.5,
+                        help='Re-weighting Coefficient.')
+
     parser.add_argument('--epochs_train', type=int, default=300,
                         help='Number of training epoch.')
     parser.add_argument('--unfreeze_epoch', default=3, type=int)

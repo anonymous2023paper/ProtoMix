@@ -221,7 +221,7 @@ def main(args):
 
             loss_protolabel, loss_protocls, loss_origincls, patient_y_true, patient_y_prob, patient_embed = model(
                 "train", **data)
-            loss_all = loss_protolabel + loss_protocls + loss_origincls
+            loss_all = args.alpha * loss_protolabel + (1.0-args.alpha) * loss_protocls + loss_origincls
             loss_all.backward()
 
             patient_embedding_train.append(patient_embed.clone().detach())
